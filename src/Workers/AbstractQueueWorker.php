@@ -137,18 +137,7 @@ abstract class AbstractQueueWorker extends AbstractWorker
             } catch (\Exception $e) {
                 $this->returnToInputQueue($item);
 
-                $this->logger->error(
-                    sprintf(
-                        'Exception encountered while processing message queue: %s',
-                        $e->getMessage()
-                    ),
-                    [
-                        'file' => $e->getFile(),
-                        'line' => $e->getLine(),
-                        'code' => $e->getCode(),
-                        'trace' => array_slice($e->getTrace(), 0, 5),
-                    ]
-                );
+                throw new \Exception($e);
             }
         }
 
