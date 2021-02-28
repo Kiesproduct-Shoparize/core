@@ -9,7 +9,7 @@ use Monolog\Logger;
 
 class QueueService
 {
-    public const MAX_QUEUE_AGE = 60 * 60 * 24;
+    public const MAX_QUEUE_AGE = 60 * 60 * 24 * 365;
     protected Redis $redis;
     protected Logger $logger;
 
